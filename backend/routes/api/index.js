@@ -14,7 +14,7 @@ router.use("/session", sessionRouter);
 
 router.use("/users", usersRouter);
 
-// GET /api/set-token-cookie
+// GET /api/set-token-cookie (TEST)
 router.get(
   "/set-token-cookie",
   asyncHandler(async (req, res) => {

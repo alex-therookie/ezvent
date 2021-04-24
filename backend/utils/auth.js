@@ -40,7 +40,6 @@ const restoreUser = (req, res, next) => {
 
     try {
       const { id } = jwtPayload.data;
-      console.log("HELLOOO", id);
       req.user = await User.scope("currentUser").findByPk(id);
     } catch (e) {
       console.log("IN THE CATCH!");
