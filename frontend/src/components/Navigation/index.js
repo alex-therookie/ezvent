@@ -4,31 +4,49 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
+import ezVentLogo from "../../img/ezp-logo.png";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+        {/* // TODO Replace buttons with components */}
+        <button className="nav-btn">Registrations</button>
+        <button className="nav-btn">Favorites</button>
+        <ProfileButton user={sessionUser} />
+      </>
+    );
   } else {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup">
+          <button className="nav-btn" type="button">
+            Sign Up
+          </button>
+        </NavLink>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
+    <nav>
+      <div id="logo-search">
+        <NavLink id="logo" exact to="/">
+          <img src={ezVentLogo} alt="logo"></img>
         </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+        <div className="search">
+          <input type="text" />
+          <button className="nav-btn" type="button">
+            Search
+          </button>
+        </div>
+      </div>
+      <ul className="sessionlink-container">{isLoaded && sessionLinks}</ul>
+    </nav>
   );
 }
 

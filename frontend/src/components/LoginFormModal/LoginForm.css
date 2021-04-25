@@ -36,12 +36,12 @@
 .login-input-div input {
   /* padding: 0.8rem 6rem;
     padding-left: 0.6rem; */
-  width: 18em;
+  width: 100%;
   height: auto;
-  padding: 0.7em;
+  padding: 1.2em;
   border: 1px solid rgba(216, 216, 216, 0.726);
   background: rgba(255, 255, 255, 0.726);
-  font-size: 1;
+  font-size: 1em;
 }
 
 #login-btn {
