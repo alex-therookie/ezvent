@@ -1,0 +1,1 @@
+import "./EventsGrid.css";
