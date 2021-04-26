@@ -39,9 +39,9 @@ function Navigation({ isLoaded }) {
           <img src={ezVentLogo} alt="logo"></img>
         </NavLink>
         <div className="search">
-          <input type="text" />
-          <button className="nav-btn" type="button">
-            Search
+          <input placeholder="Search" type="text" />
+          <button id="navbar-search-btn" className="nav-btn" type="button">
+            <i class="fas fa-search"></i>
           </button>
         </div>
       </div>

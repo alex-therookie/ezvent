@@ -142,3 +142,13 @@ input {
 .sessionlink-container {
   position: relative;
 }
+
+#navbar-search-btn {
+  border: 1px solid #4688c7;
+  margin: 0px;
+}
+
+.search input {
+  border: 1px solid #4688c7;
+  padding: 0.5rem;
+}

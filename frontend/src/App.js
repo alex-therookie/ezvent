@@ -8,9 +8,12 @@ import Navigation from "./components/Navigation";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(async () => {
-    await dispatch(sessionActions.userRestore());
-    setIsLoaded(true);
+  useEffect(() => {
+    async function restoreUser() {
+      await dispatch(sessionActions.userRestore());
+      setIsLoaded(true);
+    }
+    restoreUser();
   }, [dispatch]);
 
   return (
