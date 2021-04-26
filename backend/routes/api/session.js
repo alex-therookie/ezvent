@@ -24,8 +24,6 @@ router.post(
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
 
-    console.log("IN SESSION API");
-
     const user = await User.login({ credential, password });
 
     if (!user) {
