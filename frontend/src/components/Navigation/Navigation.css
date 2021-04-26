@@ -4,7 +4,7 @@ nav {
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 1rem 1rem;
   /* border: 1px solid red; */
   box-shadow: 0px 4px 10px #8888884f;
 }
@@ -68,6 +68,10 @@ button {
   color: #4688c7;
   margin-left: 0.5rem;
   /* border-radius: 3px; */
+}
+
+.nav-btn-plus {
+  margin-left: 0.3rem;
 }
 
 .nav-btn:hover {
@@ -143,6 +147,9 @@ input {
   position: relative;
 }
 
+.sessionlink-container button {
+  font-size: 1rem;
+}
 #navbar-search-btn {
   border: 1px solid #4688c7;
   margin: 0px;
@@ -151,4 +158,9 @@ input {
 .search input {
   border: 1px solid #4688c7;
   padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.search button {
+  font-size: 1rem;
 }
