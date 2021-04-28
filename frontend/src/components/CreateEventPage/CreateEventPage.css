@@ -10,7 +10,7 @@
 .create-event-card {
   border: 2px dotted #4688c7;
   width: 50%;
-  height: 70%;
+  height: 75%;
   border-radius: 5px;
   padding: 25px;
   margin-top: 20px;
@@ -30,11 +30,16 @@
 
 .create-event-form input,
 .create-event-form button,
-.create-event-form textarea {
+.create-event-form textarea,
+.create-event-form select {
   border: 1px solid #4688c7;
   margin: 10px;
   font-size: 1rem;
   background-color: white;
+}
+
+.create-event-form select {
+  width: 50%;
 }
 
 .create-event-form textarea {

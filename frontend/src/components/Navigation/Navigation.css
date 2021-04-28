@@ -79,7 +79,8 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
   font-size: 1.1rem;
   border-radius: 3px;
   font-weight: lighter;
