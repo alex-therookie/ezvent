@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Category",
     {
       name: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(25),
         unique: true,
         allowNull: false,
       },

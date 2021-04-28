@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING(100),
       },
       photoUrl: {
-        type: Sequelize.STRING(150),
+        type: Sequelize.STRING(500),
       },
       userId: {
         allowNull: false,

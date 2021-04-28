@@ -8,6 +8,8 @@ import App from "./App";
 import configureStore from "./store";
 import * as sessionActions from "./store/session";
 import ModalProvider from "./context/Modal.js";
+import CategoryProvider from "./context/Category.js";
+import { getCategories } from "./store/categories";
 
 const store = configureStore();
 
@@ -17,15 +19,18 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch = csrfFetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.getCategories = getCategories;
 }
 
 function Root() {
   return (
     <ReduxProvider store={store}>
       <ModalProvider>
+        {/* <CategoryProvider> */}
         <BrowserRouter>
           <App />
         </BrowserRouter>
+        {/* </CategoryProvider> */}
       </ModalProvider>
     </ReduxProvider>
   );
