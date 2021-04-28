@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
+import EventCard from "./components/EventCard";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MainPage />
+            {/* <EventCard event={{ title: "Concert" }} /> */}
           </Route>
           <Route path="/signup">
             <SignupFormPage />

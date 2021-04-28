@@ -1,0 +1,15 @@
+.event-card-container {
+  border: 2px solid lightcoral;
+  height: 250px;
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+.event-card-container img {
+  object-fit: fill;
+  height: 200px;
+  width: 180px;
+}
