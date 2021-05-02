@@ -1,7 +1,7 @@
 import "./CreateEventPage.css";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../../store/events";
 
 const CreateEventPage = () => {
@@ -11,7 +11,7 @@ const CreateEventPage = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(1);
   const [photoUrl, setPhotoUrl] = useState("");
 
   async function onSubmit(e) {
@@ -23,7 +23,7 @@ const CreateEventPage = () => {
       location,
       category,
       photoUrl,
-      categoryId: 3,
+      categoryId: category,
     };
 
     const newEvent = await dispatch(addEvent(event));
@@ -33,6 +33,10 @@ const CreateEventPage = () => {
     // history.push(`/events/${event.id}`);
     history.push("/");
   }
+
+  const categories = useSelector((state) => {
+    return state.categories.list;
+  });
 
   return (
     <div className="create-event-container">
@@ -81,10 +85,11 @@ const CreateEventPage = () => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            <option value="adventure">Adventure</option>
-            <option value="music">Music</option>
-            <option value="food&drink">Food & Drink</option>
-            <option value="charity">Charity</option>
+            {categories?.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
           </select>
           <button id="create-event-submit">Submit</button>
         </form>

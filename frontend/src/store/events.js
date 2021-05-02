@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_EVENTS = "events/GET_EVENTS";
 const ADD_EVENT = "events/ADD_EVENT";
+const GET_EVENT = "events/GET_EVENT";
 
 export const fetchEvents = (events) => {
   return {
@@ -17,13 +18,28 @@ export const addOneEvent = (event) => {
   };
 };
 
+export const fetchEventDetail = (event) => {
+  return {
+    type: GET_EVENT,
+    event,
+  };
+};
+
 export const getEvents = (categoryId) => async (dispatch) => {
   console.log("IN GETEVENTS", categoryId);
-  const res = await csrfFetch(`/api/events/${categoryId}`);
+  const res = await csrfFetch(`/api/categories/${categoryId}`);
   const events = await res.json();
 
   dispatch(fetchEvents(events));
   return events;
+};
+
+export const getEventDetail = (eventId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/events/${eventId}`);
+  const event = await res.json();
+
+  dispatch(fetchEventDetail(event));
+  return event;
 };
 
 export const addEvent = (event) => async (dispatch) => {
@@ -52,6 +68,13 @@ const eventReducer = (state = {}, action) => {
       return {
         ...state,
         events: [...state.events, action.event],
+      };
+    }
+
+    case GET_EVENT: {
+      return {
+        ...state,
+        currentEvent: action.event,
       };
     }
     default:

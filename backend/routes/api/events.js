@@ -6,24 +6,13 @@ const { Event } = require("../../db/models");
 const { Category } = require("../../db/models");
 
 router.get(
-  "/:categoryId(\\d)",
+  "/:eventId",
   asyncHandler(async (req, res) => {
     // Change to id of category when full cateogry databse frontend complete
-    const categoryId = req.params.categoryId;
-    console.log(categoryId);
-    const events = await Event.findAll({
-      where: { categoryId },
-    });
-    return res.json(events);
-  })
-);
-
-router.get(
-  "/categories",
-  asyncHandler(async (req, res) => {
-    const categories = await Category.findAll();
-
-    return res.json(categories);
+    console.log("HELLO FROM EVENTS GET");
+    const eventId = req.params.eventId;
+    const event = await Event.findByPk(eventId);
+    return res.json(event);
   })
 );
 
