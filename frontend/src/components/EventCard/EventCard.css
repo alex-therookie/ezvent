@@ -7,10 +7,12 @@
   flex-direction: column;
   border-radius: 3px;
   margin: 15px;
+  font-family: "Helvetica";
+  text-decoration: none;
 }
 
 .event-card-container img {
-  object-fit: fill;
+  object-fit: cover;
   height: 200px;
   width: 180px;
 }

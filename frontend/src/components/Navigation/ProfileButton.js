@@ -39,8 +39,7 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>
             <NavLink to={"/"} className="profile-dropdow-links">
-              Username
-              {/* {user.username} */}
+              {user.username}
             </NavLink>
           </li>
           <li>
