@@ -5,11 +5,20 @@ const ADD_EVENT = "events/ADD_EVENT";
 const GET_EVENT = "events/GET_EVENT";
 const REGISTER_USER = "events/REGISTER_USER";
 const GET_REGISTRATIONS = "events/GET_REGISTRATIONS";
+const GET_FAVORITES = "events/GET_FAVORITES";
+const FAVORITE_EVENT = "events/FAVORITE_EVENT";
 
 export const fetchRegistrations = (registrations) => {
   return {
     type: GET_REGISTRATIONS,
     registrations,
+  };
+};
+
+export const fetchFavorites = (favorites) => {
+  return {
+    type: GET_FAVORITES,
+    favorites,
   };
 };
 
@@ -23,6 +32,13 @@ export const fetchEvents = (events) => {
 export const registerOneUser = (event) => {
   return {
     type: REGISTER_USER,
+    event,
+  };
+};
+
+export const favoriteOneEvent = (event) => {
+  return {
+    type: FAVORITE_EVENT,
     event,
   };
 };
@@ -72,6 +88,23 @@ export const registerUser = (eventId) => async (dispatch) => {
   const event = await res.json();
 
   dispatch(registerOneUser(event));
+  return event;
+};
+
+export const getAllFavorites = () => async (dispatch) => {
+  const res = await csrfFetch("/api/events/favorites");
+  const favorites = await res.json();
+
+  dispatch(fetchFavorites(favorites));
+};
+
+export const favoriteEvent = (eventId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/events/${eventId}/favorite`, {
+    method: "POST",
+  });
+  const event = await res.json();
+
+  dispatch(favoriteOneEvent(event));
   return event;
 };
 
@@ -129,6 +162,27 @@ const eventReducer = (state = {}, action) => {
       return {
         ...state,
         registrations: action.registrations,
+      };
+    }
+
+    case FAVORITE_EVENT: {
+      if (state.favorites) {
+        return {
+          ...state,
+          favorites: [...state.favorites, action.event],
+        };
+      } else {
+        return {
+          ...state,
+          favorites: [action.event],
+        };
+      }
+    }
+
+    case GET_FAVORITES: {
+      return {
+        ...state,
+        favorites: action.favorites,
       };
     }
     default:

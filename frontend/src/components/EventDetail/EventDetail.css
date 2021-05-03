@@ -75,6 +75,23 @@
   margin-bottom: 20px;
 }
 
+#favorite-btn {
+  color: white;
+  background-color: rgb(243, 239, 13);
+  width: 20%;
+  padding: 5px;
+  margin: 0px;
+  /* margin: 10px; */
+}
+
+#favorited-btn {
+  color: gray;
+  background-color: rgb(219, 219, 219);
+  width: 20%;
+  margin: 0px;
+  padding: 5px;
+}
+
 #register-date,
 #register-location {
   padding: 10px;
@@ -85,6 +102,8 @@
   /* background-color: #e7f4ffbd; */
   width: 100%;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  justify-content: space-between;
 }
 
 .event-detail-description {

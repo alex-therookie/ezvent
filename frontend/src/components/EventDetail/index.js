@@ -6,6 +6,8 @@ import {
   getEventDetail,
   registerUser,
   getAllRegistrations,
+  favoriteEvent,
+  getAllFavorites,
 } from "../../store/events";
 
 const EventDetail = () => {
@@ -16,9 +18,13 @@ const EventDetail = () => {
   const isRegistered = useSelector((state) =>
     state.events.registrations?.some((event) => event.id.toString() === eventId)
   );
+  const isFavorited = useSelector((state) =>
+    state.events.favorites?.some((event) => event.id.toString() === eventId)
+  );
 
   useEffect(() => {
     dispatch(getAllRegistrations());
+    dispatch(getAllFavorites());
   }, [dispatch]);
 
   useEffect(() => {
@@ -29,11 +35,13 @@ const EventDetail = () => {
     dispatch(registerUser(eventId));
   };
 
+  const handleFavorite = () => {
+    dispatch(favoriteEvent(eventId));
+  };
+
   if (!event) return null;
 
   const date = dateFormat(event.date, "mmmm d, yyyy");
-
-  console.log("ISREGISTERED", isRegistered);
 
   return (
     <div className="event-detail-container">
@@ -43,6 +51,15 @@ const EventDetail = () => {
         </div>
         <div className="event-detail-title">
           <h2>{event?.title}</h2>
+          {isFavorited ? (
+            <button disabled={true} id="favorited-btn">
+              Bookmarked
+            </button>
+          ) : (
+            <button onClick={(e) => handleFavorite()} id="favorite-btn">
+              Favorite
+            </button>
+          )}
         </div>
         <div className="event-detail-description">
           <div>About this Event:</div>
