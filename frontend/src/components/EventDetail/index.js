@@ -14,7 +14,7 @@ const EventDetail = () => {
   const dispatch = useDispatch();
   const event = useSelector((state) => state.events.currentEvent);
   const isRegistered = useSelector((state) =>
-    state.events.registrations?.includes(parseInt(eventId, 10))
+    state.events.registrations?.some((event) => event.id.toString() === eventId)
   );
 
   useEffect(() => {

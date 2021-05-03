@@ -20,7 +20,9 @@ function Navigation({ isLoaded }) {
             <i className="fas fa-plus nav-btn-plus"></i>
           </button>
         </NavLink>
-        <button className="nav-btn">Registrations</button>
+        <NavLink to={"/registrations"}>
+          <button className="nav-btn">Registrations</button>
+        </NavLink>
         <button className="nav-btn">Favorites</button>
         <ProfileButton user={sessionUser} />
       </>

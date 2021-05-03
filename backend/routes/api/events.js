@@ -5,6 +5,7 @@ const asyncHandler = require("express-async-handler");
 const { Event } = require("../../db/models");
 const { Category } = require("../../db/models");
 const { Registration } = require("../../db/models");
+const { Op } = require("sequelize");
 
 router.get(
   "/:eventId(\\d+)",
@@ -26,7 +27,15 @@ router.get(
       where: { userId },
     });
     const eventIds = registrations.map((reg) => reg.eventId);
-    return res.json(eventIds);
+    console.log(eventIds);
+    const events = await Event.findAll({
+      where: {
+        id: {
+          [Op.in]: eventIds,
+        },
+      },
+    });
+    return res.json(events);
   })
 );
 
