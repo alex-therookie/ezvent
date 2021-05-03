@@ -23,7 +23,9 @@ function Navigation({ isLoaded }) {
         <NavLink to={"/registrations"}>
           <button className="nav-btn">Registrations</button>
         </NavLink>
-        <button className="nav-btn">Favorites</button>
+        <NavLink to={"/favorites"}>
+          <button className="nav-btn">Favorites</button>
+        </NavLink>
         <ProfileButton user={sessionUser} />
       </>
     );

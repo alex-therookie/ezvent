@@ -4,6 +4,7 @@ const { restoreUser } = require("../../utils/auth");
 const asyncHandler = require("express-async-handler");
 const { Event } = require("../../db/models");
 const { Category } = require("../../db/models");
+const { Favorite } = require("../../db/models");
 const { Registration } = require("../../db/models");
 const { Op } = require("sequelize");
 
@@ -39,6 +40,27 @@ router.get(
   })
 );
 
+router.get(
+  "/favorites",
+  restoreUser,
+  asyncHandler(async (req, res) => {
+    const userId = req.user.id;
+    console.log("HELLO FRON REGISTRATIONS!!");
+    const favorites = await Favorite.findAll({
+      where: { userId },
+    });
+    const eventIds = favorites.map((reg) => reg.eventId);
+    const events = await Event.findAll({
+      where: {
+        id: {
+          [Op.in]: eventIds,
+        },
+      },
+    });
+    return res.json(events);
+  })
+);
+
 router.post(
   "/:eventId/registration",
   restoreUser,
@@ -51,6 +73,22 @@ router.post(
     });
 
     const event = await Event.findByPk(registeredEvent.eventId);
+    return res.json(event);
+  })
+);
+
+router.post(
+  "/:eventId/favorite",
+  restoreUser,
+  asyncHandler(async (req, res) => {
+    const eventId = req.params.eventId;
+    const userId = req.user.id;
+    const favoritedEvent = await Favorite.create({
+      userId,
+      eventId,
+    });
+
+    const event = await Event.findByPk(favoritedEvent.eventId);
     return res.json(event);
   })
 );

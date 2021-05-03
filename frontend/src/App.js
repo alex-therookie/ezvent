@@ -9,6 +9,7 @@ import EventCard from "./components/EventCard";
 import CreateEventPage from "./components/CreateEventPage";
 import EventDetail from "./components/EventDetail";
 import RegistrationsPage from "./components/RegistrationsPage";
+import FavoritesPage from "./components/FavoritesPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/registrations">
             <RegistrationsPage />
+          </Route>
+          <Route path="/favorites">
+            <FavoritesPage />
           </Route>
         </Switch>
       )}

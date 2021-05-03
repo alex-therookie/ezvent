@@ -1,4 +1,5 @@
 import "./RegistrationsPage.css";
+import "../EventsGrid/EventsGrid.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllRegistrations } from "../../store/events";
@@ -14,12 +15,15 @@ const RegistrationsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="registrations-container">
-      {registeredEvents &&
-        registeredEvents.map((event) => {
-          return <EventCard event={event} />;
-        })}
-    </div>
+    <>
+      <h2 id="registrations-title">My Registrations</h2>
+      <div className="events-container">
+        {registeredEvents &&
+          registeredEvents.map((event) => {
+            return <EventCard event={event} />;
+          })}
+      </div>
+    </>
   );
 };
 
