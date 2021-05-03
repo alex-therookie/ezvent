@@ -67,6 +67,14 @@
   /* margin: 10px; */
 }
 
+#unregister-btn {
+  color: gray;
+  background-color: rgb(219, 219, 219);
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
 #register-date,
 #register-location {
   padding: 10px;

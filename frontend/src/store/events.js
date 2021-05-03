@@ -3,11 +3,27 @@ import { csrfFetch } from "./csrf";
 const GET_EVENTS = "events/GET_EVENTS";
 const ADD_EVENT = "events/ADD_EVENT";
 const GET_EVENT = "events/GET_EVENT";
+const REGISTER_USER = "events/REGISTER_USER";
+const GET_REGISTRATIONS = "events/GET_REGISTRATIONS";
+
+export const fetchRegistrations = (registrations) => {
+  return {
+    type: GET_REGISTRATIONS,
+    registrations,
+  };
+};
 
 export const fetchEvents = (events) => {
   return {
     type: GET_EVENTS,
     events,
+  };
+};
+
+export const registerOneUser = (event) => {
+  return {
+    type: REGISTER_USER,
+    event,
   };
 };
 
@@ -39,6 +55,23 @@ export const getEventDetail = (eventId) => async (dispatch) => {
   const event = await res.json();
 
   dispatch(fetchEventDetail(event));
+  return event;
+};
+
+export const getAllRegistrations = () => async (dispatch) => {
+  const res = await csrfFetch("/api/events/registrations");
+  const registrations = await res.json();
+
+  dispatch(fetchRegistrations(registrations));
+};
+
+export const registerUser = (eventId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/events/${eventId}/registration`, {
+    method: "POST",
+  });
+  const event = await res.json();
+
+  dispatch(registerOneUser(event));
   return event;
 };
 
@@ -75,6 +108,27 @@ const eventReducer = (state = {}, action) => {
       return {
         ...state,
         currentEvent: action.event,
+      };
+    }
+
+    case REGISTER_USER: {
+      if (state.registrations) {
+        return {
+          ...state,
+          registrations: [...state.registrations, action.event],
+        };
+      } else {
+        return {
+          ...state,
+          registrations: [action.event],
+        };
+      }
+    }
+
+    case GET_REGISTRATIONS: {
+      return {
+        ...state,
+        registrations: action.registrations,
       };
     }
     default:

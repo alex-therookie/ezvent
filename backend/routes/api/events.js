@@ -4,15 +4,59 @@ const { restoreUser } = require("../../utils/auth");
 const asyncHandler = require("express-async-handler");
 const { Event } = require("../../db/models");
 const { Category } = require("../../db/models");
+const { Registration } = require("../../db/models");
 
 router.get(
-  "/:eventId",
+  "/:eventId(\\d+)",
   asyncHandler(async (req, res) => {
-    // Change to id of category when full cateogry databse frontend complete
-    console.log("HELLO FROM EVENTS GET");
     const eventId = req.params.eventId;
+    console.log("HELLO FROM GET EVENTS", eventId);
     const event = await Event.findByPk(eventId);
     return res.json(event);
+  })
+);
+
+router.get(
+  "/registrations",
+  restoreUser,
+  asyncHandler(async (req, res) => {
+    const userId = req.user.id;
+    console.log("HELLO FRON REGISTRATIONS!!");
+    const registrations = await Registration.findAll({
+      where: { userId },
+    });
+    const eventIds = registrations.map((reg) => reg.eventId);
+    return res.json(eventIds);
+  })
+);
+
+router.post(
+  "/:eventId/registration",
+  restoreUser,
+  asyncHandler(async (req, res) => {
+    const eventId = req.params.eventId;
+    const userId = req.user.id;
+    const registeredEvent = await Registration.create({
+      userId,
+      eventId,
+    });
+
+    const event = await Event.findByPk(registeredEvent.eventId);
+    return res.json(event.id);
+  })
+);
+
+router.delete(
+  "/:eventId/registration",
+  restoreUser,
+  asyncHandler(async (req, res) => {
+    const userId = req.user.id;
+    const eventId = req.params.eventId;
+    await Registration.destroy({
+      where: { eventId, userId },
+    });
+
+    res.json(eventId);
   })
 );
 

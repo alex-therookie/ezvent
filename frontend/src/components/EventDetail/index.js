@@ -1,23 +1,39 @@
 import "./EventDetail.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { getEventDetail } from "../../store/events";
+import { useEffect, useState } from "react";
+import {
+  getEventDetail,
+  registerUser,
+  getAllRegistrations,
+} from "../../store/events";
+
 const EventDetail = () => {
   const dateFormat = require("dateformat");
   const { eventId } = useParams();
   const dispatch = useDispatch();
   const event = useSelector((state) => state.events.currentEvent);
-  console.log(event);
+  const isRegistered = useSelector((state) =>
+    state.events.registrations?.includes(parseInt(eventId, 10))
+  );
+
+  useEffect(() => {
+    dispatch(getAllRegistrations());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getEventDetail(eventId));
   }, [eventId, dispatch]);
 
+  const handleRegister = () => {
+    dispatch(registerUser(eventId));
+  };
+
   if (!event) return null;
 
   const date = dateFormat(event.date, "mmmm d, yyyy");
-  //   const time = dateFormat(event.time, "h:MM:ss TT");
+
+  console.log("ISREGISTERED", isRegistered);
 
   return (
     <div className="event-detail-container">
@@ -34,7 +50,15 @@ const EventDetail = () => {
         </div>
       </div>
       <div className="event-register-card">
-        <button id="register-btn">Register</button>
+        {isRegistered ? (
+          <button disabled={true} id="unregister-btn">
+            Registered
+          </button>
+        ) : (
+          <button onClick={(e) => handleRegister()} id="register-btn">
+            Register
+          </button>
+        )}
         <div id="register-date">
           <span>Date: </span>
           {date}
