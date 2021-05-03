@@ -19,7 +19,7 @@ export const setCategory = (categoryId) => {
 
 export const getCategories = () => async (dispatch) => {
   console.log("from getCategories store");
-  const res = await csrfFetch("/api/events/categories");
+  const res = await csrfFetch("/api/categories");
   console.log("from getCategories store", res);
   const categories = await res.json();
 

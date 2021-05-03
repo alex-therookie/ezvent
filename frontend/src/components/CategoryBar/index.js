@@ -10,7 +10,6 @@ const CategoryBar = () => {
   useEffect(() => {
     async function getCats() {
       await dispatch(getCategories());
-      console.log("from useEffect");
     }
 
     getCats();

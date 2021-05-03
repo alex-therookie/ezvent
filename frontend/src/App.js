@@ -6,6 +6,9 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
 import EventCard from "./components/EventCard";
+import CreateEventPage from "./components/CreateEventPage";
+import EventDetail from "./components/EventDetail";
+import RegistrationsPage from "./components/RegistrationsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,10 +28,18 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MainPage />
-            {/* <EventCard event={{ title: "Concert" }} /> */}
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/events/new">
+            <CreateEventPage />
+          </Route>
+          <Route path="/events/:eventId">
+            <EventDetail />
+          </Route>
+          <Route path="/registrations">
+            <RegistrationsPage />
           </Route>
         </Switch>
       )}

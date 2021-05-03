@@ -6,12 +6,15 @@ const { restoreUser } = require("../../utils/auth.js");
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 const eventsRouter = require("./events.js");
+const categoriesRouter = require("./categories.js");
 
 router.use("/session", sessionRouter);
 
 router.use("/users", usersRouter);
 
 router.use("/events", eventsRouter);
+
+router.use("/categories", categoriesRouter);
 
 // GET /api/set-token-cookie (TEST)
 // router.get(

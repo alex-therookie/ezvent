@@ -14,11 +14,15 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         {/* // TODO Replace buttons with components */}
-        <button className="nav-btn">
-          Create Event
-          <i className="fas fa-plus nav-btn-plus"></i>
-        </button>
-        <button className="nav-btn">Registrations</button>
+        <NavLink to="/events/new">
+          <button className="nav-btn">
+            Create Event
+            <i className="fas fa-plus nav-btn-plus"></i>
+          </button>
+        </NavLink>
+        <NavLink to={"/registrations"}>
+          <button className="nav-btn">Registrations</button>
+        </NavLink>
         <button className="nav-btn">Favorites</button>
         <ProfileButton user={sessionUser} />
       </>

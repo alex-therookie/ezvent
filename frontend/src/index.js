@@ -26,11 +26,9 @@ function Root() {
   return (
     <ReduxProvider store={store}>
       <ModalProvider>
-        {/* <CategoryProvider> */}
         <BrowserRouter>
           <App />
         </BrowserRouter>
-        {/* </CategoryProvider> */}
       </ModalProvider>
     </ReduxProvider>
   );

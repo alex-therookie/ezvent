@@ -78,8 +78,10 @@ button {
   color: #43719c;
 }
 
-input {
-  font-size: 1.2rem;
+input,
+textarea,
+select {
+  font-size: 1.1rem;
   border-radius: 3px;
   font-weight: lighter;
   padding: 0.6rem;
