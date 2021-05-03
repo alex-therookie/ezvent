@@ -12,7 +12,7 @@ module.exports = {
           date: new Date(),
           location: "4 Pennsylvania Plaza, New York, NY 10001, US",
           photoUrl:
-            "https://media.cntraveler.com/photos/59ef91dd8d4f736d51415c2e/master/w_2667,h_2000,c_limit/7MileBeach-2013-HiRes.jpg",
+            "https://silviacelestescicchitano.files.wordpress.com/2018/10/36858995_10217246605662945_5157271809912995840_n.jpg?w=1060",
           userId: 1,
           categoryId: 3,
         },
@@ -22,7 +22,7 @@ module.exports = {
           date: new Date(),
           location: "1600 Pennsylvania Avenue NW, Washington, DC 20500, US",
           photoUrl:
-            "https://media.cntraveler.com/photos/59ef91dd8d4f736d51415c2e/master/w_2667,h_2000,c_limit/7MileBeach-2013-HiRes.jpg",
+            "https://www.whitehouse.gov/wp-content/uploads/2021/01/about_the_white_house.jpg",
           userId: 1,
           categoryId: 4,
         },
