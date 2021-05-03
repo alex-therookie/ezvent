@@ -51,7 +51,7 @@ router.post(
     });
 
     const event = await Event.findByPk(registeredEvent.eventId);
-    return res.json(event.id);
+    return res.json(event);
   })
 );
 

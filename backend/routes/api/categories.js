@@ -10,11 +10,16 @@ router.get(
   asyncHandler(async (req, res) => {
     // Change to id of category when full cateogry databse frontend complete
     const categoryId = req.params.categoryId;
-    console.log(categoryId);
-    const events = await Event.findAll({
-      where: { categoryId },
-    });
-    return res.json(events);
+    console.log("CATEGORY", categoryId);
+    if (categoryId === "1") {
+      const events = await Event.findAll();
+      return res.json(events);
+    } else {
+      const events = await Event.findAll({
+        where: { categoryId },
+      });
+      return res.json(events);
+    }
   })
 );
 
