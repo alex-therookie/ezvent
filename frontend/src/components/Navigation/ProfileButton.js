@@ -32,16 +32,16 @@ function ProfileButton({ user }) {
   return (
     <div className="profile-btn-container">
       <button className="nav-btn" id="profile-btn" onClick={openMenu}>
-        Profile
+        {user.username}
         <i className="fas fa-user-circle" id="profile-img" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>
+          {/* <li>
             <NavLink to={"/"} className="profile-dropdow-links">
               {user.username}
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to={"/"}

@@ -24,6 +24,10 @@
   margin-bottom: 2em;
 } */
 
+.nav-login-btn {
+  padding: 4px 8px;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -47,8 +51,14 @@
 #login-btn {
   padding: 1rem 8.6rem;
   font-size: 1rem;
-  margin-top: 2rem;
+  margin-top: 11.2px;
   border: 1px solid #4688c7;
+}
+
+#login-btn:hover {
+  color: white;
+  background-color:#4688c7;
+
 }
 
 #login-title {

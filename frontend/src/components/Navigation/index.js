@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
           </button>
         </NavLink>
         <NavLink to={"/registrations"}>
-          <button className="nav-btn">Registrations</button>
+          <button className="nav-btn">My Events</button>
         </NavLink>
         <NavLink to={"/favorites"}>
           <button className="nav-btn">Favorites</button>
