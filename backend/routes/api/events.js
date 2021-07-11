@@ -23,7 +23,8 @@ router.get(
   restoreUser,
   asyncHandler(async (req, res) => {
     const userId = req.user.id;
-    console.log("HELLO FRON REGISTRATIONS!!");
+    if (!userId) return null;
+    console.log("HELLO FRON REGISTRATIONS!!", userId);
     const registrations = await Registration.findAll({
       where: { userId },
     });
@@ -45,6 +46,7 @@ router.get(
   restoreUser,
   asyncHandler(async (req, res) => {
     const userId = req.user.id;
+    if (!userId) return null;
     console.log("HELLO FRON REGISTRATIONS!!");
     const favorites = await Favorite.findAll({
       where: { userId },
