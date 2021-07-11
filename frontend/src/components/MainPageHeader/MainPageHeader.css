@@ -12,15 +12,15 @@
 }
 
 .banner-container {
-  border: 1px solid red;
+
   display: flex;
   justify-content: center;
   min-width: 725px;
+  background-color: rgb(249, 249, 249);
 
 }
 
 .text-container {
-  border: 1px solid blue;
   min-width: 306px;
   width: 50%;
   display: flex;
@@ -28,7 +28,7 @@
   justify-content: center;
   /* justify-content: space-around; */
   padding: 5px;
-  /* position: relative; */
+  align-items: center;
 }
 
 .span-discover, .span-events {

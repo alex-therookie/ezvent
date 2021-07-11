@@ -4,7 +4,7 @@ nav {
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 8px;
   /* border: 1px solid red; */
   box-shadow: 0px 4px 10px #8888884f;
 }
@@ -30,24 +30,24 @@ img {
   /* border: solid 1px black; */
 }
 
+.logo-img {
+  height: 75px;
+  width: 120px;
+}
+
 #logo-search {
   display: flex;
   align-items: center;
   /* border: solid 1px blue; */
 }
+.search {
+  min-width: 263px;
+  height: 36px;
+}
 
 @media screen and (max-width: 858px) {
   .search {
     display: none;
-  }
-
-  img {
-    width: 250px;
-    height: auto;
-  }
-
-  nav {
-    padding: 0.5rem 3rem;
   }
 }
 
@@ -66,16 +66,25 @@ button {
   cursor: pointer;
   background: rgb(255, 255, 255);
   color: #4688c7;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
   /* border-radius: 3px; */
 }
 
 .nav-btn-plus {
-  margin-left: 0.3rem;
+  padding: 0 4px;
 }
 
 .nav-btn:hover {
   color: #43719c;
+}
+
+.create-btn {
+  padding: 4px 8px;
+}
+
+.nav-btn {
+  padding: 4px 8px;
+
 }
 
 input,
@@ -155,6 +164,7 @@ select {
 #navbar-search-btn {
   border: 1px solid #4688c7;
   margin: 0px;
+  padding: 8px 16px;
 }
 
 .search input {

@@ -13,9 +13,8 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* // TODO Replace buttons with components */}
         <NavLink to="/events/new">
-          <button className="nav-btn">
+          <button className="nav-btn create-btn">
             Create Event
             <i className="fas fa-plus nav-btn-plus"></i>
           </button>
@@ -46,12 +45,12 @@ function Navigation({ isLoaded }) {
     <nav>
       <div id="logo-search">
         <NavLink id="logo" exact to="/">
-          <img src={ezVentLogo} alt="logo"></img>
+          <img className="logo-img" src={ezVentLogo} alt="logo"></img>
         </NavLink>
         <div className="search">
           <input placeholder="Search" type="text" />
           <button id="navbar-search-btn" className="nav-btn" type="button">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search "></i>
           </button>
         </div>
       </div>
