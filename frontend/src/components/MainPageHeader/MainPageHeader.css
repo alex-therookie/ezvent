@@ -1,4 +1,57 @@
 .main-page-header {
   width: 100%;
-  margin-top: 10px;
+  height: 100%;
+  padding: 0;
+}
+
+.img-container {
+  height: 300px;
+  width: 430px;
+  object-fit: contain;
+  min-width: 413px;
+}
+
+.banner-container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  min-width: 725px;
+
+}
+
+.text-container {
+  border: 1px solid blue;
+  min-width: 306px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* justify-content: space-around; */
+  padding: 5px;
+  /* position: relative; */
+}
+
+.span-discover, .span-events {
+  font-weight: bold;
+  font-family: "Helvetica";
+  padding: 5px;
+}
+
+.span-discover {
+  color:#4688c7;
+  font-size: 28px;
+}
+
+.span-events {
+  color:#333;
+  font-size: 32px;
+}
+
+.browse-btn {
+  background-color: hsl(43deg 100% 68%);
+  color: white;
+  width: 140px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 0px;
 }
