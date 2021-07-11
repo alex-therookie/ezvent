@@ -69,3 +69,18 @@
   font-weight: bold;
   color: rgba(0, 0, 0, 0.9);
 }
+
+.demo-container {
+  padding: 5px;
+}
+
+.span-demo {
+  color: #4688c7;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.span-demo:hover {
+  color: #4073a3;
+}

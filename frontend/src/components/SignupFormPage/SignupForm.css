@@ -78,3 +78,18 @@ form {
   color: rgb(104, 104, 104);
   /* border: 1px solid red; */
 }
+
+.demo-container {
+  padding: 5px;
+}
+
+.span-demo {
+  color: #4688c7;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.span-demo:hover {
+  color: #4073a3;
+}

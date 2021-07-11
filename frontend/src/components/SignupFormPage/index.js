@@ -31,6 +31,10 @@ function SignupFormPage() {
     ]);
   };
 
+  const handleDemoLogin = () => {
+    return dispatch(sessionActions.userLogin({ credential: "demouser", password: "password" }))
+  }
+
   return (
     <div className="signup-body">
       <div className="signup-header">
@@ -91,6 +95,7 @@ function SignupFormPage() {
           <button id="signup-btn" type="submit">
             Sign Up
           </button>
+          <div className="demo-container">Or continue as a <span onClick={handleDemoLogin} className="span-demo">demo user</span>.</div>
         </form>
       </div>
     </div>
