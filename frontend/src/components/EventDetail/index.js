@@ -1,6 +1,6 @@
 import "./EventDetail.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   getEventDetail,
@@ -12,6 +12,8 @@ import {
 
 const EventDetail = () => {
   const dateFormat = require("dateformat");
+  const history = useHistory();
+  const user = useSelector((state) => state.session.user)
   const { eventId } = useParams();
   const dispatch = useDispatch();
   const event = useSelector((state) => state.events.currentEvent);
@@ -32,11 +34,19 @@ const EventDetail = () => {
   }, [eventId, dispatch]);
 
   const handleRegister = () => {
-    dispatch(registerUser(eventId));
+    if (user) {
+      dispatch(registerUser(eventId));
+    } else {
+      history.push("/signup")
+    }
   };
 
   const handleFavorite = () => {
-    dispatch(favoriteEvent(eventId));
+    if (user) {
+      dispatch(favoriteEvent(eventId));
+    } else {
+      history.push("/signup")
+    }
   };
 
   if (!event) return null;
