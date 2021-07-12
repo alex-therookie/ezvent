@@ -18,6 +18,13 @@ router.get(
   })
 );
 
+router.get("/",
+  asyncHandler(async (req, res) => {
+    const events = await Event.findAll();
+    return res.json(events);
+  })
+);
+
 router.get(
   "/registrations",
   restoreUser,

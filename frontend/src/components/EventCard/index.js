@@ -2,7 +2,6 @@ import "./EventCard.css";
 import { NavLink } from "react-router-dom";
 
 const EventCard = ({ event }) => {
-  console.log("FROM EVENTCARD");
   return (
     <NavLink to={`/events/${event.id}`}>
       <div className="event-card-container">

@@ -3,8 +3,7 @@ import "../EventsGrid/EventsGrid.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllRegistrations } from "../../store/events";
-import EventCard from "../EventCard";
-
+import EventCard from "../EventCard"
 const RegistrationsPage = () => {
   const dispatch = useDispatch();
 
@@ -16,7 +15,7 @@ const RegistrationsPage = () => {
 
   return (
     <>
-      <h2 id="registrations-title">My Registrations</h2>
+      <h2 id="registrations-title">My Events</h2>
       <div className="events-container">
         {registeredEvents &&
           registeredEvents.map((event) => {

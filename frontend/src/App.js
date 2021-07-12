@@ -7,9 +7,11 @@ import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
 import EventCard from "./components/EventCard";
 import CreateEventPage from "./components/CreateEventPage";
+import SearchProvider from "../src/context/SearchContext"
 import EventDetail from "./components/EventDetail";
 import RegistrationsPage from "./components/RegistrationsPage";
 import FavoritesPage from "./components/FavoritesPage";
+import EventSearch from "./components/EventSearch"
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <>
+    <SearchProvider>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -39,6 +42,9 @@ function App() {
           <Route path="/events/:eventId">
             <EventDetail />
           </Route>
+          <Route path="/events">
+            <EventSearch />
+          </Route>
           <Route path="/registrations">
             <RegistrationsPage />
           </Route>
@@ -47,6 +53,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      </SearchProvider>
     </>
   );
 }

@@ -58,7 +58,6 @@ export const fetchEventDetail = (event) => {
 };
 
 export const getEvents = (categoryId) => async (dispatch) => {
-  console.log("IN GETEVENTS", categoryId);
   const res = await csrfFetch(`/api/categories/${categoryId}`);
   const events = await res.json();
 

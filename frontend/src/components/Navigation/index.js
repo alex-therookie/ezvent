@@ -2,12 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import { useSearch} from "../../context/SearchContext"
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import ezVentLogo from "../../img/ezp-logo.png";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
+  const { searchInput, setSearchInput } = useSearch();
 
   let sessionLinks;
   if (sessionUser) {
@@ -48,7 +50,12 @@ function Navigation({ isLoaded }) {
           <img className="logo-img" src={ezVentLogo} alt="logo"></img>
         </NavLink>
         <div className="search">
-          <input placeholder="Search" type="text" />
+          <input
+          placeholder="Search"
+          type="text"
+          onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
+          />
           <button id="navbar-search-btn" className="nav-btn" type="button">
             <i class="fas fa-search "></i>
           </button>

@@ -3,9 +3,11 @@ import EventsGrid from "../EventsGrid";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, setCategory } from "../../store/categories";
+import { useSearch} from "../../context/SearchContext";
 
 const CategoryBar = () => {
   const dispatch = useDispatch();
+  const { searchInput } = useSearch();
 
   useEffect(() => {
     async function getCats() {
