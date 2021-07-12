@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import { useSearch} from "../../context/SearchContext"
@@ -8,8 +8,13 @@ import "./Navigation.css";
 import ezVentLogo from "../../img/ezp-logo.png";
 
 function Navigation({ isLoaded }) {
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const { searchInput, setSearchInput } = useSearch();
+
+  const handleSearch = () => {
+    history.push("/events");
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -56,7 +61,7 @@ function Navigation({ isLoaded }) {
           onChange={(e) => setSearchInput(e.target.value)}
           value={searchInput}
           />
-          <button id="navbar-search-btn" className="nav-btn" type="button">
+          <button onClick={handleSearch} id="navbar-search-btn" className="nav-btn" type="button">
             <i class="fas fa-search "></i>
           </button>
         </div>

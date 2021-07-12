@@ -9,14 +9,15 @@ const EventSearch = () => {
     // const dispatch = useDispatch();
     const [events, setEvents] = useState();
     const { searchInput } = useSearch();
-    const searchedEvents = events.filter(event => {
-        return event.title.toLowerCase().includes(searchInput.toLowerCase())
-        && searchInput.length >= 3;
-    })
 
     useEffect(() => {
         fetch("api/events/").then(res => res.json()).then(res => setEvents(res))
-      }, []);
+    }, []);
+
+    const searchedEvents = events?.filter(event => {
+        return (event.title.toLowerCase().includes(searchInput.toLowerCase())
+        || searchInput.length < 3);
+    })
 
   return (
     <>
