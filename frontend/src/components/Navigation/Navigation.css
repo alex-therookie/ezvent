@@ -80,6 +80,7 @@ button {
 
 .create-btn {
   padding: 4px 8px;
+  min-width: 132px;
 }
 
 .nav-btn {
