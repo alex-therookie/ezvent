@@ -40,7 +40,7 @@
 .login-input-div input {
   /* padding: 0.8rem 6rem;
     padding-left: 0.6rem; */
-  width: 100%;
+  width: 317px;
   height: auto;
   padding: 1em;
   border: 1px solid rgba(216, 216, 216, 0.726);
@@ -53,6 +53,7 @@
   font-size: 1rem;
   margin-top: 11.2px;
   border: 1px solid #4688c7;
+  width: 353px;
 }
 
 #login-btn:hover {
@@ -71,7 +72,7 @@
 }
 
 .demo-container {
-  padding: 5px;
+  padding: 3px;
 }
 
 .span-demo {
@@ -83,4 +84,18 @@
 
 .span-demo:hover {
   color: #4073a3;
+}
+
+.signup-link {
+  color:#4688c7;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  color: #4073a3;
+}
+
+.account-signup-text {
+  padding: 5px 3px 3px;
 }
