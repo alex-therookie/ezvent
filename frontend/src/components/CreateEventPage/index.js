@@ -84,6 +84,7 @@ const CreateEventPage = () => {
             name="category"
             onChange={(e) => setCategory(e.target.value)}
             value={category}
+            className="category-selector"
           >
             {categories?.map((category) => (
               <option key={category.id} value={category.id}>
