@@ -1,0 +1,21 @@
+.search-title {
+    padding: 25px;
+    margin: 0px auto;
+    font-family: "Helvetica";
+    border-bottom: 1px solid #aaa;
+    color: #4688c7;
+  }
+
+  .search-events-input {
+      margin-left: 25px;
+      border: 1px solid #4688c7;
+      padding: 5px;
+      display: none;
+      margin-top: 20px;
+  }
+
+  @media screen and (max-width: 857px) {
+    .search-events-input {
+        display: block;
+    }
+  }

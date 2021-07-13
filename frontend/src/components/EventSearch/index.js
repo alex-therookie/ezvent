@@ -8,7 +8,7 @@ import "./EventSearch.css";
 const EventSearch = () => {
     // const dispatch = useDispatch();
     const [events, setEvents] = useState();
-    const { searchInput } = useSearch();
+    const { searchInput, setSearchInput } = useSearch();
 
     useEffect(() => {
         fetch("api/events/").then(res => res.json()).then(res => setEvents(res))
@@ -21,8 +21,9 @@ const EventSearch = () => {
 
   return (
     <>
-      <h2 id="registrations-title">Search Events</h2>
-      <div className="events-container">
+      <h2 className="search-title">Events</h2>
+      <input placeholder="Search events" className="search-events-input" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}></input>
+      <div className="events-container" >
         {searchedEvents &&
           searchedEvents.map((event) => {
             return <EventCard event={event} />;
