@@ -7,11 +7,12 @@ import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
 import EventCard from "./components/EventCard";
 import CreateEventPage from "./components/CreateEventPage";
-import SearchProvider from "../src/context/SearchContext"
+import SearchProvider from "../src/context/SearchContext";
 import EventDetail from "./components/EventDetail";
 import RegistrationsPage from "./components/RegistrationsPage";
 import FavoritesPage from "./components/FavoritesPage";
-import EventSearch from "./components/EventSearch"
+import EventSearch from "./components/EventSearch";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,33 +27,36 @@ function App() {
 
   return (
     <>
-    <SearchProvider>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route path="/events/new">
-            <CreateEventPage />
-          </Route>
-          <Route path="/events/:eventId">
-            <EventDetail />
-          </Route>
-          <Route path="/events">
-            <EventSearch />
-          </Route>
-          <Route path="/registrations">
-            <RegistrationsPage />
-          </Route>
-          <Route path="/favorites">
-            <FavoritesPage />
-          </Route>
-        </Switch>
-      )}
+      <SearchProvider>
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <>
+            <Switch>
+              <Route exact path="/">
+                <MainPage />
+              </Route>
+              <Route path="/signup">
+                <SignupFormPage />
+              </Route>
+              <Route path="/events/new">
+                <CreateEventPage />
+              </Route>
+              <Route path="/events/:eventId">
+                <EventDetail />
+              </Route>
+              <Route path="/events">
+                <EventSearch />
+              </Route>
+              <Route path="/registrations">
+                <RegistrationsPage />
+              </Route>
+              <Route path="/favorites">
+                <FavoritesPage />
+              </Route>
+            </Switch>
+            <Footer />
+          </>
+        )}
       </SearchProvider>
     </>
   );
