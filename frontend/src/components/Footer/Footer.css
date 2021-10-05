@@ -1,5 +1,5 @@
 .footer-container {
-  height: 115px;
+  height: 109px;
   width: 100%;
   /* border: 1px solid red; */
   background-color: #4688c7;
@@ -11,6 +11,13 @@
 
 .dev-profile {
   display: flex;
+}
+
+.main-footer {
+  position: absolute;
+  /* margin-top: 200px; */
+  bottom: -109px;
+  width: 100%;
 }
 
 .dev-pic {

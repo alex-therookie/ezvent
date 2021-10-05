@@ -54,7 +54,6 @@ function App() {
                 <FavoritesPage />
               </Route>
             </Switch>
-            <Footer />
           </>
         )}
       </SearchProvider>
